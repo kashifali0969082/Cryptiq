@@ -7,7 +7,7 @@ import AccountCard from "./components/AccountCard";
 import AIAssistantCard from "./components/AIAssistantCard";
 import AnalyticsPage from "./components/AnalyticsPage";
 import TransferPage from "./components/TransferPage";
-
+import ModalComponent from "./components/modal/modal";
 const mockTransactions = [
   {
     id: "1",
@@ -134,18 +134,31 @@ function App() {
   >("home");
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+ const [isOpen, setIsOpen] = useState(false);
+  const [privateKey, setPrivateKey] = useState('');
+  const [balance, setBalance] = useState("1000"); // dummy balance
+  const [chain, setChain] = useState("Ethereum"); // or whatever chain you're using
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
     };
 
+    setIsOpen(true)
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
+    
     <div className="min-h-screen bg-gray-950 text-white">
+    <ModalComponent
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        setKey={setPrivateKey}
+        Balance={balance}
+        chain={chain}
+      />
       {currentPage !== "settings" && (
         <Header currentPage={currentPage} onPageChange={setCurrentPage} />
       )}

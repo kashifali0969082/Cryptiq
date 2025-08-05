@@ -33,7 +33,12 @@ const ModalComponent: React.FC<ModalProps> = ({
             {
               role: "user",
               // content: `hi`,
-              content: `this is my data give me a good trade option ${chain} and my balance is${Balance} give me a 1 line response`,
+              content: `this is my data give me a good trade option on ${chain} chain and my balance is${Balance} give me a response in which i have an object like this {
+  "number": 1,
+  "amount": 250.75,
+  "time": "2025-08-04T23:50:15.123Z"
+} if i have too put a trade give me 1 in number trade amount and time for trade 
+ if i donot have too doo a trade or hold the coins return 0 in all fields ` ,
             },
           ],
         },
