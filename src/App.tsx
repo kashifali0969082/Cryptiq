@@ -6,7 +6,7 @@ import CryptoMarketCard from "./components/CryptoMarketCard";
 import AccountCard from "./components/AccountCard";
 import AIAssistantCard from "./components/AIAssistantCard";
 import AnalyticsPage from "./components/AnalyticsPage";
-import TransferPage from "./components/TransferPage";
+// import TransferPage from "./components/TransferPage";
 import ModalComponent from "./components/modal/modal";
 const mockTransactions = [
   {
@@ -136,17 +136,22 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
  const [isOpen, setIsOpen] = useState(false);
   const [privateKey, setPrivateKey] = useState('');
-  const [balance, setBalance] = useState("1000"); // dummy balance
+  const [balance, setBalance] = useState("0"); // dummy balance
   const [chain, setChain] = useState("Ethereum"); // or whatever chain you're using
+console.log(privateKey);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
+      
     };
 
     setIsOpen(true)
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+
+    setChain("bnb")
+    setBalance("1000")
   }, []);
 
   return (

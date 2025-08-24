@@ -1,6 +1,5 @@
 // import React from 'react';
 import WalletOverviewWithHeader from "./WalletSummaryCard";
-import CryptoPrices from "./CryptoPrices";
 const AnalyticsPage = () => {
   return (
     // <div className="">
